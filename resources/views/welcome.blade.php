@@ -1,98 +1,105 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expense Tracker</title>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
 
-        <title>Laravel</title>
+    <script type="text/javascript">
+    	// Prevent dropdown menu from closing when click inside the form
+    	$(document).on("click", ".navbar-right .dropdown-menu", function(e){
+    		e.stopPropagation();
+    	});
+    </script>
+  </head>
+  <body>
+    <!-- Start Navbar -->
+    <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+    	<div class="navbar-header d-flex col">
+    		<a class="navbar-brand" href="#">Expense<b>Tracker</b></a>
+    	</div>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+    	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+    		<ul class="nav navbar-nav">
+    			<li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+    			<li class="nav-item"><a href="#" class="nav-link">About</a></li>
+    			<li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+    		</ul>
+    		<ul class="nav navbar-nav navbar-right ml-auto">
+    			<li class="nav-item">
+    				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a>
+    				<ul class="dropdown-menu form-wrapper">
+    					<li>
+    						<form action="/examples/actions/confirmation.php" method="post">
+    							<div class="form-group">
+    								<input type="text" class="form-control" placeholder="Username" required="required">
+    							</div>
+    							<div class="form-group">
+    								<input type="password" class="form-control" placeholder="Password" required="required">
+    							</div>
+    							<input type="submit" class="btn btn-primary btn-block" value="Login">
+    							<div class="form-footer">
+    								<a href="#">Forgot Your password?</a>
+    							</div>
+    						</form>
+    					</li>
+    				</ul>
+    			</li>
+    			<li class="nav-item">
+    				<a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
+    				<ul class="dropdown-menu form-wrapper">
+    					<li>
+    						<form action="/examples/actions/confirmation.php" method="post">
+    							<p class="hint-text">Fill in this form to create your account!</p>
+    							<div class="form-group">
+    								<input type="text" class="form-control" placeholder="Username" required="required">
+    							</div>
+    							<div class="form-group">
+    								<input type="password" class="form-control" placeholder="Password" required="required">
+    							</div>
+    							<div class="form-group">
+    								<input type="password" class="form-control" placeholder="Confirm Password" required="required">
+    							</div>
+    							<div class="form-group">
+    								<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
+    							</div>
+    							<input type="submit" class="btn btn-primary btn-block" value="Sign up">
+    						</form>
+    					</li>
+    				</ul>
+    			</li>
+    		</ul>
+    	</div>
+    </nav>
+    <!-- End Navbar -->
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <div>
+      This is some Content
+    </div>
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+    <!-- Start Footer -->
+    <div class="navbar navbar-default navbar-fixed-bottom" id="lab_social_icon_footer">
+      <div class="container" style="padding-top: 10px;">
+          <!-- Social buttons -->
+        <div class="text-center center-block">
+             <a href="https://www.facebook.com/femalebc/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+             <a href=""><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+             <a href="mailto:#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
         </div>
-    </body>
+      </div>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+          <a href="https://femalebootcamp.adevait.com/" style="color: #ef5350;"> Female Bootcamp</a>
+        </div>
+      </div>
+      <!-- End Footer -->
+
+  </body>
 </html>
