@@ -10,220 +10,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
 
-    <style type="text/css">
-    	body{
-    		font-family: 'Varela Round', sans-serif;
-    	}
-    	.form-control {
-    		box-shadow: none;
-    		font-weight: normal;
-    		font-size: 13px;
-    	}
-    	.form-control:focus {
-    		border-color: #ef5350;
-    		box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    	}
-    	.navbar-header.col {
-    		padding: 0 !important;
-    	}
-    	.navbar {
-    		background: #fff;
-    		padding-left: 16px;
-    		padding-right: 16px;
-    		border-bottom: 1px solid #dfe3e8;
-    		border-radius: 0;
-    	}
-    	.navbar .navbar-brand, .navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
-    		padding-left: 0;
-    		font-size: 20px;
-    		padding-right: 50px;
-    	}
-    	.navbar .navbar-brand b {
-    		font-weight: bold;
-    		color: #ef5350;
-    	}
-    	.navbar .form-inline {
-            display: inline-block;
-        }
-    	.navbar .nav li {
-    		position: relative;
-    	}
-    	.navbar .nav li a {
-    		color: #888;
-    	}
-    	.navbar .nav .btn-primary, .navbar .nav .btn-primary:active {
-    		color: #fff;
-    		background: #ef5350;
-    		padding-top: 8px;
-    		padding-bottom: 6px;
-    		vertical-align: middle;
-    		border: none;
-    	}
-    	.navbar .nav .btn-primary:hover, .navbar .nav .btn-primary:focus {
-    		color: #fff;
-    		outline: none;
-    		background: #e53935;
-    	}
-    	.navbar .navbar-right li:first-child a {
-    		padding-right: 30px;
-    	}
-    	.navbar .nav-item i {
-    		font-size: 18px;
-    	}
-    	.navbar .dropdown-item i {
-    		font-size: 16px;
-    		min-width: 22px;
-    	}
-    	.navbar ul.nav li.active a, .navbar ul.nav li.open > a {
-    		background: transparent !important;
-    	}
-    	.navbar .nav .get-started-btn {
-    		min-width: 120px;
-    		margin-top: 8px;
-    		margin-bottom: 8px;
-    	}
-    	.navbar ul.nav li.open > a.get-started-btn {
-    		color: #fff;
-    		background: #e53935 !important;
-    	}
-    	.navbar .navbar-form {
-    		border: none;
-    	}
-    	.navbar .dropdown-menu.form-wrapper {
-    		width: 280px;
-    		padding: 20px;
-    		left: auto;
-    		right: 0;
-        font-size: 14px;
-    	}
-    	.navbar .dropdown-menu.form-wrapper a {
-    		color: #ef5350;
-    		padding: 0 !important;
-    	}
-    	.navbar .dropdown-menu.form-wrapper a:hover{
-    		text-decoration: underline;
-    	}
-    	.navbar .form-wrapper .hint-text {
-    		text-align: center;
-    		margin-bottom: 15px;
-    		font-size: 13px;
-    	}
-    	.navbar .form-wrapper .btn, .navbar .form-wrapper .btn:hover {
-    		color: #fff;
-        margin: 0;
-    		padding: 0 !important;
-    		font-size: 13px;
-    		border: none;
-    		transition: all 0.4s;
-    		text-align: center;
-    		line-height: 34px;
-    		width: 100%;
-    		text-decoration: none;
-        }
-    	.navbar .btn-primary {
-    		background: #507cc0;
-    	}
-    	.navbar .btn-primary:hover {
-    		background: #4676bd;
-    	}
-    	.navbar .btn-info {
-    		background: #64ccf1;
-    	}
-    	.navbar .btn-info:hover {
-    		background: #4ec7ef;
-    	}
-    	.navbar .btn i {
-    		margin-right: 5px;
-    		font-size: 16px;
-    		position: relative;
-    		top: 2px;
-    	}
-    	.navbar .form-wrapper .form-footer {
-    		text-align: center;
-    		padding-top: 10px;
-    		font-size: 13px;
-    	}
-    	.navbar .form-wrapper .form-footer a:hover{
-    		text-decoration: underline;
-    	}
-    	.navbar .form-wrapper .checkbox-inline input {
-    		margin-top: 3px;
-    	}
-      .navbar .checkbox-inline {
-    		font-size: 13px;
-    	}
-    	.navbar .navbar-right .dropdown-toggle::after {
-    		display: none;
-    	}
-    	@media (min-width: 1200px){
-    		.form-inline .input-group {
-    			width: 300px;
-    			margin-left: 30px;
-    		}
-    	}
-    	@media (max-width: 768px){
-    		.navbar .dropdown-menu.form-wrapper {
-    			width: 100%;
-    			padding: 10px 15px;
-    			background: transparent;
-    			border: none;
-    		}
-    		.navbar .form-inline {
-    			display: block;
-    		}
-    		.navbar .input-group {
-    			width: 100%;
-    		}
-    		.navbar .nav .btn-primary, .navbar .nav .btn-primary:active {
-    			display: block;
-    		}
-    	}
-
-      /* Social Icons */
-
-      #lab_social_icon_footer {
-        padding: 40px 0;
-        background-color: #dedede;
-      }
-
-      #lab_social_icon_footer a {
-        color: #333;
-      }
-
-      #lab_social_icon_footer .social:hover {
-        -webkit-transform: scale(1.1);
-        -moz-transform: scale(1.1);
-        -o-transform: scale(1.1);
-      }
-
-      #lab_social_icon_footer .social {
-        -webkit-transform: scale(0.8);
-        /* Browser Variations: */
-
-        -moz-transform: scale(0.8);
-        -o-transform: scale(0.8);
-        -webkit-transition-duration: 0.5s;
-        -moz-transition-duration: 0.5s;
-        -o-transition-duration: 0.5s;
-      }
-      /*
-          Multicoloured Hover Variations
-      */
-
-      #lab_social_icon_footer #social-fb:hover {
-        color: #3B5998;
-      }
-
-      #lab_social_icon_footer #social-tw:hover {
-        color: #4099FF;
-      }
-
-      #lab_social_icon_footer #social-em:hover {
-        color: #f39c12;
-      }
-
-    </style>
     <script type="text/javascript">
     	// Prevent dropdown menu from closing when click inside the form
     	$(document).on("click", ".navbar-right .dropdown-menu", function(e){
@@ -233,16 +21,16 @@
   </head>
   <body>
     <!-- Start Navbar -->
-    <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-default navbar-expand-lg navbar-light" style="margin-bottom: 0;">
     	<div class="navbar-header d-flex col">
     		<a class="navbar-brand" href="#">Expense<b>Tracker</b></a>
     	</div>
 
     	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
     		<ul class="nav navbar-nav">
-    			<li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-    			<li class="nav-item"><a href="#" class="nav-link">About</a></li>
-    			<li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+    			<li class="nav-item"><a href="#Home" class="nav-link">Home</a></li>
+    			<li class="nav-item"><a href="#OurMission" class="nav-link">Our Mission</a></li>
+    			<li class="nav-item"><a href="#AboutUs" class="nav-link">About Us</a></li>
     		</ul>
     		<ul class="nav navbar-nav navbar-right ml-auto">
     			<li class="nav-item">
@@ -292,8 +80,47 @@
     </nav>
     <!-- End Navbar -->
 
-    <div>
-      This is some Content
+    <div class="container-fluid" style="padding: 0 0;">
+      <div class="firstdiv">
+        <div class="row" style="margin: 10px 50px;">
+          <div class="col-xs-12 text-center">
+            <div class="col-xs-12 col-md-4">
+              <img src="\imgs\unnamed.jpg" alt="expense tracker model">
+            </div>
+            <div class="col-xs-12 col-md-8">
+              <h5 id='Home'>Expense <b style="color: #ef5350">Tracker</b></h5>
+              <h1>Let us take care that <br> you stick to a budget and therefore <b style="color: #ef5350">SAVE MONEY</b></h1>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-center" style="padding:0 100px 30px">
+            <h2 id='OurMission'><b style="color: #ef5350">Our Mission</b></h2>
+            <p>Most people nowadays know the importance of keeping track of their finances and spending habits. That being said, many people still don't bother to do it.
+              Our App offers a simple way to track your expenses. It lets you record your expenses sort of like a checkbook register (by date, including a description, etc.),
+              but has separate columns for different expense categories for recording and totaling your expenses.
+              It provides insights into your spending habits.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-center" style="padding:0 100px 30px">
+            <h2 id='AboutUs'><b style="color: #ef5350">About Us</b></h2>
+            <p>We are group of young enthusiasts whose passion is programming and with our work we want to to make people's lives easier. Meet out team:</p>
+            <div class="col-xs-12 col-md-4 text-center">
+              <h4><b style="color: #ef5350">Andrea Mileska</b></h4>
+              <p>Bachelor of Computer Techologies at FEIT-Skopje.</p>
+            </div>
+            <div class="col-xs-12 col-md-4 text-center">
+              <h4><b style="color: #ef5350">Simona Petrovska</b></h4>
+              <p>Studies Computer Sciences at FINKI-Skopje.</p>
+            </div>
+            <div class="col-xs-12 col-md-4 text-center">
+              <h4><b style="color: #ef5350">Elena</b></h4>
+              <p>Studies Computer Sciences at FINKI-Skopje.</p>
+            </div>
+          </div>
+        </div>
     </div>
 
     <!-- Start Footer -->
@@ -301,8 +128,8 @@
       <div class="container" style="padding-top: 10px;">
           <!-- Social buttons -->
         <div class="text-center center-block">
-             <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-             <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+             <a href="https://www.facebook.com/femalebc/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+             <a href=""><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
              <a href="mailto:#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
         </div>
       </div>

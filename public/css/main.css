@@ -1,23 +1,13 @@
-
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
-// Variables
-@import 'variables';
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-
+/* <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> */
+/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> */
 
 body{
   font-family: 'Varela Round', sans-serif;
-
-
+  margin-bottom: 170px;
 }
 .form-control {
   box-shadow: none;
@@ -187,9 +177,8 @@ body{
 /* Social Icons */
 
 #lab_social_icon_footer {
-  padding: 20px 0;
+  padding: 40px 0;
   background-color: #dedede;
-
 }
 
 #lab_social_icon_footer a {
@@ -226,4 +215,12 @@ body{
 
 #lab_social_icon_footer #social-em:hover {
   color: #f39c12;
+}
+
+/* Content */
+
+.firstdiv {
+  background-color: #dedede; 
+  padding: 50px 0;
+  margin-bottom: 40px;
 }
