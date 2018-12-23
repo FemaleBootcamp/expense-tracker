@@ -7,6 +7,7 @@
 
 body{
   font-family: 'Varela Round', sans-serif;
+  margin-bottom: 170px;
 }
 .form-control {
   box-shadow: none;
@@ -214,4 +215,12 @@ body{
 
 #lab_social_icon_footer #social-em:hover {
   color: #f39c12;
+}
+
+/* Content */
+
+.firstdiv {
+  background-color: #dedede; 
+  padding: 50px 0;
+  margin-bottom: 40px;
 }

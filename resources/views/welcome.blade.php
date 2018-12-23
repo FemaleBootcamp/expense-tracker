@@ -21,16 +21,16 @@
   </head>
   <body>
     <!-- Start Navbar -->
-    <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-default navbar-expand-lg navbar-light" style="margin-bottom: 0;">
     	<div class="navbar-header d-flex col">
     		<a class="navbar-brand" href="#">Expense<b>Tracker</b></a>
     	</div>
 
     	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
     		<ul class="nav navbar-nav">
-    			<li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-    			<li class="nav-item"><a href="#" class="nav-link">About</a></li>
-    			<li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+    			<li class="nav-item"><a href="#Home" class="nav-link">Home</a></li>
+    			<li class="nav-item"><a href="#OurMission" class="nav-link">Our Mission</a></li>
+    			<li class="nav-item"><a href="#AboutUs" class="nav-link">About Us</a></li>
     		</ul>
     		<ul class="nav navbar-nav navbar-right ml-auto">
     			<li class="nav-item">
@@ -80,8 +80,48 @@
     </nav>
     <!-- End Navbar -->
 
-    <div>
-      This is some Content
+    <div class="container-fluid" style="padding: 0 0;">
+      <div class="firstdiv">
+        <div class="row" style="margin: 10px 50px;">
+          <div class="col-xs-12 text-center">
+            <div class="col-xs-12 col-md-4">
+              <img src="\imgs\unnamed.jpg" alt="expense tracker model">
+            </div>
+            <div class="col-xs-12 col-md-8">
+              <h5 id='Home'>Expense <b style="color: #ef5350">Tracker</b></h5>
+              <h1>Let us take care that <br> you stick to a budget and therefore <b style="color: #ef5350">SAVE MONEY</b></h1>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-center" style="padding:0 100px 30px">
+            <h2 id='OurMission'><b style="color: #ef5350">Our Mission</b></h2>
+            <p>Most people nowadays know the importance of keeping track of their finances and spending habits. That being said, many people still don't bother to do it.
+              Our App offers a simple way to track your expenses. It lets you record your expenses sort of like a checkbook register (by date, including a description, etc.),
+              but has separate columns for different expense categories for recording and totaling your expenses.
+              It provides insights into your spending habits.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-center" style="padding:0 100px 30px">
+            <h2 id='AboutUs'><b style="color: #ef5350">About Us</b></h2>
+            <p>We are group of young enthusiasts whose passion is programming and with our work we want to to make people's lives easier. Meet out team:</p>
+            <div class="col-xs-12 col-md-4 text-center">
+              <h4><b style="color: #ef5350">Andrea Mileska</b></h4>
+              <p>Bachelor of Computer Techologies at FEIT-Skopje.</p>
+            </div>
+            <div class="col-xs-12 col-md-4 text-center">
+              <h4><b style="color: #ef5350">Simona Petrovska</b></h4>
+              <p>Studies Computer Sciences at FINKI-Skopje.</p>
+            </div>
+            <div class="col-xs-12 col-md-4 text-center">
+              <h4><b style="color: #ef5350">Elena</b></h4>
+              <p>Studies Computer Sciences at FINKI-Skopje.</p>
+            </div>
+          </div>
+        </div>
+
     </div>
 
     <!-- Start Footer -->
