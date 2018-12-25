@@ -32,58 +32,26 @@
     			<li class="nav-item"><a href="#OurMission" class="nav-link">Our Mission</a></li>
     			<li class="nav-item"><a href="#AboutUs" class="nav-link">About Us</a></li>
     		</ul>
-    		<ul class="nav navbar-nav navbar-right ml-auto">
-    			<li class="nav-item">
-    				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a>
-    				<ul class="dropdown-menu form-wrapper">
-    					<li>
-    						<form action="" method="post">
-    							<div class="form-group">
-    								<input type="text" class="form-control" placeholder="Username" required="required">
-    							</div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="E-mail" required="required">
-                                </div>
-    							<div class="form-group">
-    								<input type="password" class="form-control" placeholder="Password" required="required">
-    							</div>
+            <ul class="nav navbar-nav navbar-right ">
+                <li class="nav-item">
+                    <div>
+                        @if (Route::has('login'))
+                            @auth
+                                <a href="{{ url('/home') }}" class="btn btn-lg btn-danger">Dashboard</a>
+                            @else
+                                <a href="{{ route('login') }}" class="btn  mr-4 btn-danger text-white" style="background: white">Login</a>
 
-    							<input type="submit" class="btn btn-primary btn-block" value="Login">
-    							<div class="form-footer">
-    								<a href="{{ route('password.request') }}">Forgot Your password?</a>
-    							</div>
-    						</form>
-    					</li>
-    				</ul>
-    			</li>
-    			<li class="nav-item">
-    				<a  data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
-    				<ul class="dropdown-menu form-wrapper">
-    					<li>
-    						<form action="" method="post">
-    							<p class="hint-text">Fill in this form to create your account!</p>
-    							<div class="form-group">
-    								<input type="text" class="form-control" placeholder="Username" required="required">
-    							</div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Email" required="required">
-                                </div>
-    							<div class="form-group">
-    								<input type="password" class="form-control" placeholder="Password" required="required">
-    							</div>
-    							<div class="form-group">
-    								<input type="password" class="form-control" placeholder="Confirm Password" required="required">
-    							</div>
-    							<div class="form-group">
-    								<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
-    							</div>
-    							<input type="submit" class="btn btn-primary btn-block" value="Sign up">
-    						</form>
-    					</li>
-    				</ul>
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="btn btn-danger text-white" style="background: white" >Register</a>
+                                @endif
+                            @endauth
+                        @endif
+                    </div>
+
     			</li>
     		</ul>
     	</div>
+
     </nav>
     <!-- End Navbar -->
 
@@ -146,6 +114,10 @@
         </div>
       </div>
       <!-- End Footer -->
+
+
+
+
 
   </body>
 </html>
