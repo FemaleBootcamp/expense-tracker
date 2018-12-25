@@ -37,30 +37,37 @@
     				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a>
     				<ul class="dropdown-menu form-wrapper">
     					<li>
-    						<form action="/examples/actions/confirmation.php" method="post">
+    						<form action="" method="post">
     							<div class="form-group">
     								<input type="text" class="form-control" placeholder="Username" required="required">
     							</div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="E-mail" required="required">
+                                </div>
     							<div class="form-group">
     								<input type="password" class="form-control" placeholder="Password" required="required">
     							</div>
+
     							<input type="submit" class="btn btn-primary btn-block" value="Login">
     							<div class="form-footer">
-    								<a href="#">Forgot Your password?</a>
+    								<a href="{{ route('password.request') }}">Forgot Your password?</a>
     							</div>
     						</form>
     					</li>
     				</ul>
     			</li>
     			<li class="nav-item">
-    				<a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
+    				<a  data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
     				<ul class="dropdown-menu form-wrapper">
     					<li>
-    						<form action="/examples/actions/confirmation.php" method="post">
+    						<form action="" method="post">
     							<p class="hint-text">Fill in this form to create your account!</p>
     							<div class="form-group">
     								<input type="text" class="form-control" placeholder="Username" required="required">
     							</div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Email" required="required">
+                                </div>
     							<div class="form-group">
     								<input type="password" class="form-control" placeholder="Password" required="required">
     							</div>
