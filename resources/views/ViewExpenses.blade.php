@@ -38,50 +38,7 @@
     </nav>
     <!-- End Navbar -->
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <div class="card" style="margin-top:50px; margin-bottom:50px;">
-        <div class="header" style="padding-left:15px;">
-          <h2>Expense <b style="color: #ef5350">Table</b></h2>
-        </div>
-        <div class="body" style="padding-left:15px;">
-          <div class="table-responsive">
-            <div class="row">
-              <div class="col-sm-12">
-                <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
-                  <thead>
-                    <tr>
-                      <th>Expense Title</th>
-                      <th>Expense Type</th>
-                      <th>Cost</th>
-                      <th>Date</th>
-                      <th>Attachment</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <td>Shopping for groceries</td>
-                    <td>Home Expense</td>
-                    <td>10 $</td>
-                    <td>29.12.2018</td>
-                    <td>link to the receipt</td>
-                    <td style="width: 265px;">
-                      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                        <div class="btn-group" role="group" aria-label="First group" style="padding-right:5px;">
-                          <button type="button" class="btn btn-info">View Details</button>
-                        </div>
-                        <div class="btn-group" role="group" aria-label="Second group" style="padding-right:5px;">
-                          <button type="button" class="btn btn-warning">Edit</button>
-                        </div>
-                        <div class="btn-group" role="group" aria-label="Third group">
-                          <button type="button" class="btn btn-danger">Delete</button>
-                        </div>
-                      </div>
-                    </td>
-                  </tbody>
-                </table>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
     <!-- Start Footer -->
     <div class="navbar navbar-default navbar-fixed-bottom" id="lab_social_icon_footer">
@@ -98,6 +55,7 @@
           <a href="https://femalebootcamp.adevait.com/" style="color: #ef5350;"> Female Bootcamp</a>
         </div>
       </div>
+    </div>
       <!-- End Footer -->
   </body>
    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>

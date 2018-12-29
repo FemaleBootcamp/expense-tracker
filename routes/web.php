@@ -17,7 +17,4 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::post('/home', 'HomeController@index')->name('home');
-Route::get('/Expenses', function () {
-    return view('ViewExpenses');
-});
+Route::get('/home', 'HomeController@index')->name('home');
