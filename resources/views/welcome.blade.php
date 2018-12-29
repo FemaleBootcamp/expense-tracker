@@ -14,7 +14,7 @@
 
     <script type="text/javascript">
         // Prevent dropdown menu from closing when click inside the form
-        $(document).on("click", ".navbar-right .dropdown-menu", function(e){
+        $(document).on("click", ".navbar-right .dropdown-menu", function (e) {
             e.stopPropagation();
         });
     </script>
@@ -26,9 +26,7 @@
         <a class="navbar-brand" href="#">Expense<b>Tracker</b></a>
     </div>
 
-    @section('content')
-
-    <iv id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
         <ul class="nav navbar-nav">
             <li class="nav-item"><a href="#Home" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="#OurMission" class="nav-link">Our Mission</a></li>
@@ -37,43 +35,44 @@
         <ul class="nav navbar-nav navbar-right ml-auto">
 
 
-
-@if(Auth::guest())
+            @if(Auth::guest())
                 <li class="nav-item">
 
-                <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a>
-                <ul class="dropdown-menu form-wrapper">
-                    <li>
+                    <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a>
+                    <ul class="dropdown-menu form-wrapper">
+                        <li>
 
 
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
 
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
+                                <div class="form-group">
 
-                            <div class="form-group">
-
-                                    <input id="email" placeholder="Email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                    <input id="email" placeholder="Email" type="email"
+                                           class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
+                                           value="{{ old('email') }}" required autofocus>
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
                                     @endif
-                            </div>
+                                </div>
 
-                            <div class="form-group">
+                                <div class="form-group">
 
-                                    <input id="password" placeholder="Password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                    <input id="password" placeholder="Password" type="password"
+                                           class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
                                     @endif
 
-                            </div>
+                                </div>
 
-                            <div class="form-group">
+                                <div class="form-group">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember">
 
@@ -81,77 +80,80 @@
                                             {{ __('Remember Me') }}
                                         </label>
                                     </div>
-                            </div>
+                                </div>
 
-                            <div class="form-group ">
+                                <div class="form-group ">
                                     <button type="submit" class="btn btn-danger">
                                         {{ __('Login') }}
                                     </button>
 
                                     @if (Route::has('password.request'))
-                                        <a class="" href="{{ route('password.request') }}" >
+                                        <a class="" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                     @endif
                                 </div>
-                        </form>
+                            </form>
 
 
+                        </li>
+                    </ul>
+                </li>
 
-                    </li>
-                </ul>
-            </li>
+                <li class="nav-item">
 
-            <li class="nav-item">
-
-                <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
-                <ul class="dropdown-menu form-wrapper">
-                    <li>
-
+                    <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
+                    <ul class="dropdown-menu form-wrapper">
+                        <li>
 
 
-
-                        <form method="POST" action="{{ route('register') }}">
+                            <form method="POST" action="{{ route('register') }}">
                                 @csrf
 
-                            <p class="hint-text">Fill in this form to create your account!</p>
+                                <p class="hint-text">Fill in this form to create your account!</p>
                                 <div class="form-group">
 
-                                        <input id="name"  placeholder="Username" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                    <input id="name" placeholder="Username" type="text"
+                                           class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name"
+                                           value="{{ old('name') }}" required autofocus>
 
-                                        @if ($errors->has('name'))
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
+                                    @if ($errors->has('name'))
+                                        <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                                    @endif
+                                </div>
 
                                 <div class="form-group ">
 
-                                        <input id="email" placeholder="Email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                    <input id="email" placeholder="Email" type="email"
+                                           class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
+                                           value="{{ old('email') }}" required>
 
-                                        @if ($errors->has('email'))
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                        @endif
+                                    @if ($errors->has('email'))
+                                        <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                                    @endif
 
                                 </div>
 
                                 <div class="form-group">
-                                        <input id="password" placeholder="Password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                    <input id="password" placeholder="Password" type="password"
+                                           class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
-                                        @if ($errors->has('password'))
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
+                                    @if ($errors->has('password'))
+                                        <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                                    @endif
+                                </div>
 
 
                                 <div class="form-group ">
 
-                                        <input id="password-confirm" placeholder="Confirm Password" type="password" class="form-control" name="password_confirmation" required>
+                                    <input id="password-confirm" placeholder="Confirm Password" type="password" class="form-control"
+                                           name="password_confirmation" required>
                                 </div>
 
                                 <div class="form-group row mb-0">
@@ -163,11 +165,12 @@
                                 </div>
 
 
-                        </form>
+                            </form>
 
-                    </li>
-                </ul>
-    @else
+                        </li>
+                    </ul>
+            @else
+                <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Expenses dashboard</a></li>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
@@ -185,24 +188,22 @@
                         </form>
                     </div>
                 </li>
-    @endif
-                </ul>
-            </li>
+            @endif
+        </ul>
+        </li>
         </ul>
 
+        </div>
     </div>
-    </iv>
 </nav>
 <!-- End Navbar -->
-
-
 
 <div class="container-fluid" style="padding: 0 0;">
     <div class="firstdiv">
         <div class="row" style="margin: 10px 50px;">
             <div class="col-xs-12 text-center">
                 <div class="col-xs-12 col-md-4">
-                    <img src="\imgs\unnamed.jpg" alt="expense tracker model">
+                    <img src="{{ asset('imgs/unnamed.jpg') }}" alt="expense tracker model">
                 </div>
                 <div class="col-xs-12 col-md-8">
                     <h5 id='Home'>Expense <b style="color: #ef5350">Tracker</b></h5>
@@ -214,8 +215,10 @@
     <div class="row">
         <div class="col-xs-12 text-center" style="padding:0 100px 30px">
             <h2 id='OurMission'><b style="color: #ef5350">Our Mission</b></h2>
-            <p>Most people nowadays know the importance of keeping track of their finances and spending habits. That being said, many people still don't bother to do it.
-                Our App offers a simple way to track your expenses. It lets you record your expenses sort of like a checkbook register (by date, including a description, etc.),
+            <p>Most people nowadays know the importance of keeping track of their finances and spending habits. That being said, many people still
+                don't bother to do it.
+                Our App offers a simple way to track your expenses. It lets you record your expenses sort of like a checkbook register (by date,
+                including a description, etc.),
                 but has separate columns for different expense categories for recording and totaling your expenses.
                 It provides insights into your spending habits.</p>
         </div>
@@ -223,7 +226,8 @@
     <div class="row">
         <div class="col-xs-12 text-center" style="padding:0 100px 30px">
             <h2 id='AboutUs'><b style="color: #ef5350">About Us</b></h2>
-            <p>We are group of young enthusiasts whose passion is programming and with our work we want to to make people's lives easier. Meet out team:</p>
+            <p>We are group of young enthusiasts whose passion is programming and with our work we want to to make people's lives easier. Meet out
+                team:</p>
             <div class="col-xs-12 col-md-4 text-center">
                 <h4><b style="color: #ef5350">Andrea Mileska</b></h4>
                 <p>Bachelor of Computer Techologies at FEIT-Skopje.</p>
@@ -239,7 +243,6 @@
         </div>
     </div>
 </div>
-
 
 
 <!-- Start Footer -->
