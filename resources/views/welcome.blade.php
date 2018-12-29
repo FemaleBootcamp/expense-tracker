@@ -73,9 +73,9 @@
 
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember"  required{{ old('remember') ? 'checked' : '' }}>
+                                        <input class="form-check-input" type="checkbox" name="remember" id="remember">
 
                                         <label class="form-check-label" for="remember">
                                             {{ __('Remember Me') }}
