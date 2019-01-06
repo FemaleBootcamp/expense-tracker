@@ -32,7 +32,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <td>Shopping for groceries</td>
+                                        <td>Groceries</td>
                                         <td>Home Expense</td>
                                         <td>10 $</td>
                                         <td>29.12.2018</td>
