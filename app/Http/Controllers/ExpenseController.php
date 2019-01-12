@@ -6,34 +6,19 @@ use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
 {
-    public function index()
-    {
-          try{
-              $statusCode = 200;
-              $response = [
-                'expenses'  => []
-              ];
+  public function index(Request $request)
+  {
+      $input = $request->all();
 
-              $expenses = Expense::all();
+      var_export($input);
 
-              foreach($expenses as $expense){
+      //
+  }
 
-                  $response['expenses'][] = [
-                      'id' => $expense->id,
-                      'user_id' => $expense->user_id,
-                      'title' => $expense->title,
-                      'type' => $expense->type,
-                      'cost' => $expense->cost,
-                      'attachment' => $expense->attachment,
-                      'date' => $expense->date,
-                  ];
-              }
-
-          }catch (Exception $e){
-              $statusCode = 400;
-          }finally{
-              return Response::json($response, $statusCode);
-          }
-
+  public function filter(Request $request)
+  {
+    if ($request->has('ExpenseType')) {
+      return $expense->where('type', $request->input('ExpenseType'))->get();
     }
+  }
 }
