@@ -16,6 +16,77 @@
                             </div>
                         @endif
 
+                        <form action="/expenses" method="get">
+
+                          <!-- <div class="container"> -->
+                            <h4>Filter my expenses by: </h4>
+                            <div  class="form-group">
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <label for="ExpenseType">Expense Type</label>
+                                  <select class="form-control" id="ExpenseType" name="ExpenseType">
+                                    <option>--</option>
+                                    <option>Home Expense</option>
+                                    <option>Rent</option>
+                                    <option>Utility bills</option>
+                                    <option>Vehicle maintenance</option>
+                                    <option>Clothing & shoes</option>
+                                    <option>Gifts</option>
+                                    <option>Personal care items</option>
+                                    <option>Entertainment</option>
+                                    <option>Eating out</option>
+                                    <option>Other</option>
+                                  </select>
+                                </div>
+                                <div class="col-md-2" >
+                                  <div style="padding-top: 15%; text-align: right;">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                      <input type="radio" id="lessThan" name="select" class="custom-control-input" value="lessThan">
+                                      <label class="custom-control-label" for="lessThan"><</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                      <input type="radio" id="equals" name="select" class="custom-control-input"  value="equals">
+                                      <label class="custom-control-label" for="equals">=</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                      <input type="radio" id="greaterThan" name="select" class="custom-control-input" value="greaterThan">
+                                      <label class="custom-control-label" for="greaterThan">></label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div>
+                                    <label for="cost">Expense Cost</label>
+                                    <input type="number" class="form-control" id="cost" name="cost" placeholder="Enter a value">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+                              <div class="row">
+                                <div class='col-md-5'>
+                                    <div class="form-group">
+                                        <div class='input-group date'>
+                                          <label for="datetimepicker6">Date From: </label>
+                                            <input type='text' class="form-control" name="dateFrom" id="datetimepicker6"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='col-md-5'>
+                                    <div class="form-group">
+                                        <div class='input-group date'>
+                                          <label for="datetimepicker7">Date To: </label>
+                                            <input type='text' class="form-control" name="dateTo" id="datetimepicker7"/>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                              <button type="submit" value="search">search</button>
+                            <!-- </div> -->
+
+                        </form>
+
                         <div class="table-responsive">
                             <div class="row">
                                 <div class="col-12">
