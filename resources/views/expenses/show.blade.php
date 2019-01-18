@@ -41,16 +41,13 @@
                                 <div class="col-md-2" >
                                   <div style="padding-top: 15%; text-align: right;">
                                     <div class="custom-control custom-radio custom-control-inline">
-                                      <input type="radio" id="lessThan" name="select" class="custom-control-input" value="lessThan">
-                                      <label class="custom-control-label" for="lessThan"><</label>
+                                      <input type="radio" id="lessThan" name="select" value="<"><
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline">
-                                      <input type="radio" id="equals" name="select" class="custom-control-input"  value="equals">
-                                      <label class="custom-control-label" for="equals">=</label>
+                                      <input type="radio" id="equals" name="select" value="=">=
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline">
-                                      <input type="radio" id="greaterThan" name="select" class="custom-control-input" value="greaterThan">
-                                      <label class="custom-control-label" for="greaterThan">></label>
+                                      <input type="radio" id="greaterThan" name="select" value=">">>
                                     </div>
                                   </div>
                                 </div>

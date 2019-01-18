@@ -11,231 +11,43 @@ class ExpenseController extends Controller
 {
   public function index(Request $request)
   {
-      $input = $request->all();
-      $input['dateFrom'] = date("Y-m-d", strtotime($input['dateFrom']));
-      $input['dateTo'] = date("Y-m-d", strtotime($input['dateTo']));
-      var_export($input);
+    $input = $request->all();
 
-      $expenses = Expense::where('user_id', auth()->user()->id);
+     // by default use the current month expenses
+     $start = Carbon::now()->startOfMonth();
+     $end = Carbon::now();
 
-      if($input['ExpenseType'] != '--' && $input['dateFrom'] != '1970-01-01' && $input['dateTo'] != '1970-01-01' && $input['cost'] != NULL) {
-        if ($input['select'] == 'equals') {
-          $expenses->where('type', $input['ExpenseType'])
-                   ->where('cost',  $input['cost'])
-                   ->where('date', '>=', $input['dateFrom'])
-                   ->where('date', '<=', $input['dateTo']);
-        }
-        else if ($input['select'] == 'lessThan') {
-          $expenses->where('type', $input['ExpenseType'])
-                   ->where('cost', '<', $input['cost'])
-                   ->where('date', '>=', $input['dateFrom'])
-                   ->where('date', '<=', $input['dateTo']);
-        }
-        else if ($input['select'] == 'greaterThan') {
-          $expenses->where('type', $input['ExpenseType'])
-                   ->where('cost', '>', $input['cost'])
-                   ->where('date', '>=', $input['dateFrom'])
-                   ->where('date', '<=', $input['dateTo']);
-        }
-        // dd($input['select']);
-        dd($expenses->get());
-      }
-      else if ($input['ExpenseType'] == '--' && $input['dateFrom'] != '1970-01-01' && $input['dateTo'] != '1970-01-01' && $input['cost'] != NULL) {
-        if ($input['select'] == 'equals') {
-          $expenses->where('cost',  $input['cost'])
-                   ->where('date', '>=', $input['dateFrom'])
-                   ->where('date', '<=', $input['dateTo']);
-        }
-        else if ($input['select'] == 'lessThan') {
-          $expenses->where('cost', '<', $input['cost'])
-                   ->where('date', '>=', $input['dateFrom'])
-                   ->where('date', '<=', $input['dateTo']);
-        }
-        else if ($input['select'] == 'greaterThan') {
-          $expenses->where('cost', '>', $input['cost'])
-                   ->where('date', '>=', $input['dateFrom'])
-                   ->where('date', '<=', $input['dateTo']);
-        }
-        dd($expenses->get());
-      }
-      else if ($input['ExpenseType'] == '--' && $input['dateFrom'] != '1970-01-01' && $input['dateTo'] != '1970-01-01' && $input['cost'] == NULL) {
-        $expenses->where('date', '>=', $input['dateFrom'])
-                 ->where('date', '<=', $input['dateTo']);
-        dd($expenses->get());
-        dd($input['select']);
-      }
-      // else if (($input['dateFrom'] == '1970-01-01' || $input['dateTo'] == '1970-01-01') && ($input['ExpenseType'] == '--' && $input['cost'] == NULL) {
-      //   $expenses->where('type', $input['ExpenseType'])
-      //             ->where('date', '>=', Carbon::now()->month);
-      //   dd($expenses->get());
-      // }
+     // get all expenses for the logged in user
+     $expenses = Expense::where('user_id', auth()->user()->id);
 
-      else if ($input['dateFrom'] == '1970-01-01' || $input['dateTo'] == '1970-01-01') {
-        if ($input['ExpenseType'] != '--' && $input['cost'] == NULL) {
-          $expenses->where('type', $input['ExpenseType'])
-                    ->whereYear('date', Carbon::now()->year)
-                    ->whereMonth('date', Carbon::now()->month);
-          dd($expenses->get());
-        }
-        else if ($input['ExpenseType'] == '--' && $input['cost'] == NULL) {
-          $expenses->whereYear('date', Carbon::now()->year)
-                  ->whereMonth('date', Carbon::now()->month);
-          dd($expenses->get());
-        }
-        else if ($input['ExpenseType'] == '--' && $input['cost'] != NULL) {
-          if ($input['select'] == 'equals') {
-            $expenses->where('cost',  $input['cost'])
-                    ->whereYear('date', Carbon::now()->year)
-                    ->whereMonth('date', Carbon::now()->month);
-          }
-          else if ($input['select'] == 'lessThan') {
-            $expenses->where('cost', '<', $input['cost'])
-                    ->whereYear('date', Carbon::now()->year)
-                    ->whereMonth('date', Carbon::now()->month);
-          }
-          else if ($input['select'] == 'greaterThan') {
-            $expenses->where('cost', '>', $input['cost'])
-                    ->whereYear('date', Carbon::now()->year)
-                    ->whereMonth('date', Carbon::now()->month);
-          }
-          dd($expenses->get());
-        }
-        else if ($input['ExpenseType'] != '--' && $input['cost'] != NULL) {
-          if ($input['select'] == 'equals') {
-            $expenses->where('type', $input['ExpenseType'])
-                      ->where('cost',  $input['cost'])
-                      ->whereYear('date', Carbon::now()->year)
-                      ->whereMonth('date', Carbon::now()->month);
-          }
-          else if ($input['select'] == 'lessThan') {
-            $expenses->where('type', $input['ExpenseType'])
-                    ->where('cost', '<', $input['cost'])
-                    ->whereYear('date', Carbon::now()->year)
-                    ->whereMonth('date', Carbon::now()->month);
-          }
-          else if ($input['select'] == 'greaterThan') {
-            $expenses->where('type', $input['ExpenseType'])
-                    ->where('cost', '>', $input['cost'])
-                    ->whereYear('date', Carbon::now()->year)
-                    ->whereMonth('date', Carbon::now()->month);
-          }
-          dd($expenses->get());
-        }
-      }
+     if($input['ExpenseType'] != '--')
+     {
+       $expenses->where('type', $input['ExpenseType']);
+     }
 
+     if($input['dateFrom'])
+     {
+       $start = Carbon::createFromFormat('d-m-Y', $input['dateFrom']);
+     }
 
+     if($input['dateTo'])
+     {
+       $end = Carbon::createFromFormat('d-m-Y', $input['dateTo']);
+     }
 
+     // filter the results for the used dates.
+     $expenses->whereBetween('date', [$start, $end]);
 
-      // var_dump($request->input('select'));
+     if($request->has('select') && $input['cost'])
+     {
+       $expenses->where('cost', $input['select'], $input['cost']);
+     }
+     elseif ($input['cost'])
+     {
+       $expenses->where('cost', $input['cost']);
+     }
 
-      // if ($request->input('dateFrom') != NULL && $request->input('dateTo') != NULL && $request->input('select') != NULL &&
-      //     $request->input('cost') != NULL && $request->input('ExpenseType') != '--') {
-      //   if ($request->input('select') == 'equals'){
-      //     $expenses = Expense::where('Type', $request->input('ExpenseType'))
-      //                 ->where('cost', $request->input('cost'))
-      //                 // ->where('date', '>=', $request->input('dateFrom'))
-      //                 // ->where('date', '<=', $request->input('dateTo'))
-      //                 ->get();
-      //     var_export($expenses);
-      //   }
-      //
-      //   else if ($request->input('select') == 'lessThan') {
-      //       $expenses = Expense::where('Type', $request->input('ExpenseType'))
-      //                   ->where('cost', '<', $request->input('cost'))
-      //                   // ->where('date', '>=', $request->input('dateFrom'))
-      //                   // ->where('date', '<=', $request->input('dateTo'))
-      //                   ->get();
-      //       var_export($expenses);
-      //     }
-      //     else if ($request->input('select') == 'greaterThan') {
-      //         $expenses = Expense::where('Type', $request->input('ExpenseType'))
-      //                     ->where('cost', '>', $request->input('cost'))
-      //                     // ->where('date', '>=', $request->input('dateFrom'))
-      //                     // ->where('date', '<=', $request->input('dateTo'))
-      //                     ->get();
-      //         var_export($expenses);
-      //       }
-      //   }
-      //   else if ($request->input('dateFrom') != NULL && $request->input('dateTo') != NULL && $request->input('select') != NULL &&
-      //           $request->input('cost') != NULL && $request->input('ExpenseType') == '--') {
-      //     if ($request->input('select') == 'equals'){
-      //       $expenses = Expense::where('cost', $request->input('cost'))
-      //                   // ->where('date', '>=', $request->input('dateFrom'))
-      //                   // ->where('date', '<=', $request->input('dateTo'))
-      //                   ->get();
-      //       var_export($expenses);
-      //     }
-      //     else if ($request->input('select') == 'lessThan') {
-      //         $expenses = Expense::where('cost', '<', $request->input('cost'))
-      //                     // ->where('date', '>=', $request->input('dateFrom'))
-      //                     // ->where('date', '<=', $request->input('dateTo'))
-      //                     ->get();
-      //         var_export($expenses);
-      //       }
-      //       else if ($request->input('select') == 'greaterThan') {
-      //           $expenses = Expense::where('cost', '>', $request->input('cost'))
-      //                       // ->where('date', '>=', $request->input('dateFrom'))
-      //                       // ->where('date', '<=', $request->input('dateTo'))
-      //                       ->get();
-      //           var_export($expenses);
-      //         }
-      //   }
-      //   else if ($request->input('dateFrom') != NULL && $request->input('dateTo') != NULL && $request->input('cost') == NULL &&
-      //           $request->input('ExpenseType') != '--') {
-      //     $expenses = Expense::where('Type', $request->input('ExpenseType'))
-      //                 // ->where('date', '>=', $request->input('dateFrom'))
-      //                 // ->where('date', '<=', $request->input('dateTo'))
-      //                 ->get();
-      //     var_export($expenses);
-      //   }
-      //   else if (($request->input('dateFrom') == NULL || $request->input('dateTo') == NULL)) {
-      //
-      //     if ($request->input('select') != NULL && $request->input('cost') && $request->input('ExpenseType') != '--')  {
-      //       if ($request->input('select') == 'equals'){
-      //         $expenses = Expense::where('Type', $request->input('ExpenseType'))
-      //                     ->where('cost', $request->input('cost'))
-      //                     ->where(DB::raw('MONTH(created_at)'), '=', date('n') )
-      //                     ->get();
-      //         var_export($expenses);
-      //       }
-      //       else if ($request->input('select') == 'lessThan') {
-      //           $expenses = Expense::where('Type', $request->input('ExpenseType'))
-      //                       ->where('cost', '<', $request->input('cost'))
-      //                       ->where(DB::raw('MONTH(created_at)'), '=', date('n') )
-      //                       ->get();
-      //           var_export($expenses);
-      //         }
-      //         else if ($request->input('select') == 'greaterThan') {
-      //             $expenses = Expense::where('Type', $request->input('ExpenseType'))
-      //                         ->where('cost', '>', $request->input('cost'))
-      //                         ->where(DB::raw('MONTH(created_at)'), '=', date('n') )
-      //                         ->get();
-      //             var_export($expenses);
-      //           }
-      //
-      //     }
-      //
-      //     else if ($request->input('select') != NULL && $request->input('cost') && $request->input('ExpenseType') == '--') {
-      //       if ($request->input('select') == 'equals'){
-      //         $expenses = Expense::where('cost', $request->input('cost'))
-      //                     ->where(DB::raw('MONTH(created_at)'), '=', date('n') )
-      //                     ->get();
-      //         var_export($expenses);
-      //       }
-      //       else if ($request->input('select') == 'lessThan') {
-      //           $expenses = Expense::where('cost', '<', $request->input('cost'))
-      //                       ->where(DB::raw('MONTH(created_at)'), '=', date('n') )
-      //                       ->get();
-      //           var_export($expenses);
-      //         }
-      //         else if ($request->input('select') == 'greaterThan') {
-      //             $expenses = Expense::where('cost', '>', $request->input('cost'))
-      //                         ->where(DB::raw('MONTH(created_at)'), '=', date('n') )
-      //                         ->get();
-      //             var_export($expenses);
-      //           }
-      //     }
-      //   }
+     return $expenses->get();
   }
 
   public function filter(Request $request)
