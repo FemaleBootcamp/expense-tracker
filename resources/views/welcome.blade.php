@@ -157,7 +157,7 @@
                                 </div>
 
                                 <div class="form-group row mb-0">
-                                    <div class="col-md-6 offset-md-4">
+                                    <div class="col-xs-12">
                                         <button type="submit" class="btn btn-danger">
                                             {{ __('Register') }}
                                         </button>
@@ -201,11 +201,11 @@
 <div class="container-fluid" style="padding: 0 0;">
     <div class="firstdiv">
         <div class="row" style="margin: 10px 50px;">
-            <div class="col-xs-12 text-center">
+            <div class="col-xs-12">
                 <div class="col-xs-12 col-md-4">
-                    <img src="{{ asset('imgs/unnamed.jpg') }}" alt="expense tracker model">
+                    <img src="{{ asset('imgs/unnamed.jpg') }}" alt="expense tracker model" style="width: 100%">
                 </div>
-                <div class="col-xs-12 col-md-8">
+                <div class="col-xs-12 col-md-8  text-center" style="padding-top: 60px;">
                     <h5 id='Home'>Expense <b style="color: #ef5350">Tracker</b></h5>
                     <h1>Let us take care that <br> you stick to a budget and therefore <b style="color: #ef5350">SAVE MONEY</b></h1>
                 </div>
@@ -264,13 +264,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
