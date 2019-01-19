@@ -1,33 +1,57 @@
+import Vue from 'vue';
+import axios from 'axios';
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
 
-require('./bootstrap');
+window.axios = axios;
 
-window.Vue = require('vue');
+class Form {
+    /**
+     * Create a new Form instance.
+     *
+     * @param {object} data
+     */
+    constructor(data) {
+        this.originalData = data;
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+        for (let field in data) {
+            this[field] = data[field];
+        }
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+    }
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+    data() {
+        let data = {};
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+        for (let property in this.originalData) {
+            data[property] = this[property];
+        }
 
-const app = new Vue({
-    el: '#app'
+        return data;
+  }
+
+}
+
+export default Form;
+
+new Vue({
+    el: '#app',
+
+    data: {
+        form: new Form({
+            type: '',
+            select: '',
+            cost: '',
+            startDate: '',
+            endDate: '',
+            results: []
+        })
+    },
+
+    methods: {
+        onSubmit() {
+            axios
+                .get('http://localhost:8000/expenses/show')
+                .then(response => {this.results = response.data.results});
+        }
+    }
 });

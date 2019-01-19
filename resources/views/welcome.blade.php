@@ -12,6 +12,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/main.css">
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@2.1.6/dist/vue.js"></script>
+
     <script type="text/javascript">
         // Prevent dropdown menu from closing when click inside the form
         $(document).on("click", ".navbar-right .dropdown-menu", function (e) {
@@ -264,13 +267,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
