@@ -41,33 +41,13 @@
                                 <div class="col-md-2" >
                                   <div style="padding-top: 15%; text-align: right;">
                                     <div class="custom-control custom-radio custom-control-inline">
-<<<<<<< Updated upstream
                                       <input type="radio" id="lessThan" name="select" value="<" v-model="form.select"><
-=======
-<<<<<<< HEAD
-                                      <input type="radio" id="lessThan" name="select" class="custom-control-input" value="lessThan">
-                                      <label class="custom-control-label" for="lessThan"><</label>
->>>>>>> Stashed changes
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline">
                                       <input type="radio" id="equals" name="select" value="=" v-model="form.select">=
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline">
-<<<<<<< Updated upstream
                                       <input type="radio" id="greaterThan" name="select" value=">" v-model="form.select">>
-=======
-                                      <input type="radio" id="greaterThan" name="select" class="custom-control-input" value="greaterThan">
-                                      <label class="custom-control-label" for="greaterThan">></label>
-=======
-                                      <input type="radio" id="lessThan" name="select" value="<"><
-                                    </div>
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                      <input type="radio" id="equals" name="select" value="=">=
-                                    </div>
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                      <input type="radio" id="greaterThan" name="select" value=">">>
->>>>>>> b54ac9516d05fe1c3b402db0e36ab29fa7697600
->>>>>>> Stashed changes
                                     </div>
                                   </div>
                                 </div>
