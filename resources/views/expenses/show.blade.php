@@ -18,6 +18,9 @@
 
                         <form action="/expenses" method="get" @submit="onSubmit">
 
+                        <!-- <form action="/expenses" method="get"> -->
+
+
                           <!-- <div class="container"> -->
                             <h4>Filter my expenses by: </h4>
                             <div  class="form-group">

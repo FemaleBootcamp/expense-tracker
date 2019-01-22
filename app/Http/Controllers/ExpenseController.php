@@ -15,6 +15,7 @@ class ExpenseController extends Controller
       ['expenses' => Expense::all()
     ]);
   }
+
   public function index(Request $request)
   {
     $input = $request->all();
@@ -56,6 +57,8 @@ class ExpenseController extends Controller
      return view('expenses.show',
        ['expenses' => $expenses->get()
      ]);
+     //return $expenses->get();
+
   }
 
   public function filter(Request $request)

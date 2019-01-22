@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/expenses', 'ExpenseController@index');
 
 Route::get('expenses/show', 'ExpenseController@show');
+
