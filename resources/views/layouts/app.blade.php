@@ -29,6 +29,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@2.1.6/dist/vue.js"></script>
+
 </head>
 <body>
 <div id="app">
@@ -68,6 +71,7 @@
         @yield('content')
     </main>
 </div>
+<script src="/js/app.js"></script>
 </body>
 
 <script type="text/javascript">
